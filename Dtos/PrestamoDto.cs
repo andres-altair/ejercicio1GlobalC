@@ -16,7 +16,7 @@ namespace ejercicio1GlobalC.Dtos
         string estadoPrestamo = "en proceso";
 
         public PrestamoDto() { }
-        public PrestamoDto(long id, long identificadorCliente, long identificadorLibro, DateTime fchPrestamo, DateTime fchEntrega, string estadoPrestamo)
+        public PrestamoDto(long id, long identificadorCliente, long identificadorLibro, DateTime fchPrestamo, string estadoPrestamo)
         {
             this.id = id;
             this.identificadorCliente = identificadorCliente;

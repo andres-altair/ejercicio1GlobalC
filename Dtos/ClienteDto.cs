@@ -18,7 +18,7 @@ namespace ejercicio1GlobalC.Dtos
         DateTime finSuspension = new DateTime();
 
         public ClienteDto() { }
-        public ClienteDto(long id, string nombre, string apellidos, DateTime nacimiento, string dni, string correoElectronico, DateTime inicioSuspension)
+        public ClienteDto(long id, string nombre, string apellidos, DateTime nacimiento, string dni, string correoElectronico)
         {
             this.id = id;
             this.nombre = nombre;
