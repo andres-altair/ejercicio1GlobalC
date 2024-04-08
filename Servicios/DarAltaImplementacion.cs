@@ -9,11 +9,18 @@ namespace ejercicio1GlobalC.Servicios
 {
     internal class DarAltaImplementacion : DarAltaInterfaz
     {
+        private void mostrarBiblioteca(List<BibliotecaDto> listabibliteca)
+        {
+            foreach (BibliotecaDto a in listabibliteca)
+            {
+                Console.WriteLine(a.Nombre.ToString());
+            }
+        }
         GenerarIdInterfaz gi = new GenerarIdImplemntacion();
         public void bibliotecaAlta(List<BibliotecaDto> listabibliteca)
         {
             long id = gi.generarIdBiblioteca(listabibliteca);
-            Console.WriteLine("escribe el nombre ");
+            Console.WriteLine("escribe el nombre de la biblioteca");
             string nombre= Console.ReadLine();
             Console.WriteLine("escrie al direccion");
             string direccion = Console.ReadLine();  
@@ -21,7 +28,7 @@ namespace ejercicio1GlobalC.Servicios
             listabibliteca.Add(nuevaBinlioteca);
         }
 
-        public void clienteAlta(List<ClienteDto> listaCliente)
+        public void clienteAlta(List<ClienteDto> listaCliente, List<BibliotecaDto> listabibliteca)
         {
             long id = gi.generarIdCliente(listaCliente);
             Console.WriteLine("escribe tu nombre");
@@ -42,12 +49,8 @@ namespace ejercicio1GlobalC.Servicios
             ClienteDto cliente = new ClienteDto(id,nombre,apellido,fchNacimiento,dni,correoElectronico);
 
             listaCliente.Add(cliente);
-            List<BibliotecaDto> listaBiblioteca = new List<BibliotecaDto>();
 
-            foreach (BibliotecaDto bi in listaBiblioteca)
-            {
-                Console.WriteLine(bi.Nombre.ToString());
-            }
+            mostrarBiblioteca(listabibliteca);
             Console.WriteLine("en que biblioteca te vas ha registrar");
             string biblioteca = Console.ReadLine();
 
@@ -63,7 +66,7 @@ namespace ejercicio1GlobalC.Servicios
 
         }
 
-        public void libroAlta(List<LibroDto> listaLibro)
+        public void libroAlta(List<LibroDto> listaLibro, List<BibliotecaDto> listabibliteca)
         {
             long id = gi.generarIdLibro(listaLibro);
             Console.WriteLine("escribe el titulo");
@@ -83,12 +86,9 @@ namespace ejercicio1GlobalC.Servicios
             LibroDto libroDto = new LibroDto(id,titulo,subtitulo,autor,ISBN,numEdicion,editorial,stock);
 
             listaLibro.Add(libroDto);
-            List<BibliotecaDto> listaBiblioteca = new List<BibliotecaDto>();
 
-            foreach (BibliotecaDto bi in listaBiblioteca)
-            {
-                Console.WriteLine(bi.Nombre.ToString());
-            }
+            mostrarBiblioteca(listabibliteca);
+
             Console.WriteLine("en que biblioteca te vas ha registrar");
             string biblioteca = Console.ReadLine();
 
@@ -103,33 +103,29 @@ namespace ejercicio1GlobalC.Servicios
             }
         }
 
-        public void prestamoAlta(List<PrestamoDto> listaPrestamo)
+        public void prestamoAlta(List<PrestamoDto> listaPrestamo, List<BibliotecaDto> listabibliteca)
         {
             BibliotecaDto Biblioteca = new BibliotecaDto();
             List<object> listaCli = new List<object>();
-            //listaCli.Add(Biblioteca.ClienteDtos);
-           // listaCli a = new listaCli();
             
             
             
-            long id = gi.generarIdPrestamo(listaPrestamo);
+            
+            long id = gi.generarIdPrestamo(listaPrestamo );
             Console.WriteLine("escribe el identificador del cliente");
             long idCliente = Convert.ToInt64(id);
             //if(idCliente==Biblioteca.ClienteDtos.id)
             Console.WriteLine("escribe el identificador del libro");
             long idLibro = Convert.ToInt64(id);
             Console.WriteLine("escribe la fecha de prestamo");
-            DateTime fchPrestamo = Convert.ToDateTime(idCliente);
+            DateTime fchPrestamo = Convert.ToDateTime(Console.ReadLine());
             Console.WriteLine("escribe el estado del prestamo");
             string estado  = Console.ReadLine();    
             PrestamoDto prestamo = new PrestamoDto(id,idCliente,idLibro,fchPrestamo,estado);
             listaPrestamo.Add(prestamo);
-            List<BibliotecaDto> listaBiblioteca = new List<BibliotecaDto>();
 
-            foreach (BibliotecaDto bi in listaBiblioteca)
-            {
-                Console.WriteLine(bi.Nombre.ToString());
-            }
+            mostrarBiblioteca(listabibliteca);
+
             Console.WriteLine("en que biblioteca te vas ha registrar");
             string biblioteca = Console.ReadLine();
 

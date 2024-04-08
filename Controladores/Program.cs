@@ -28,6 +28,41 @@ namespace ejercicio1GlobalC.Controladores
             if(listaBiblioteca.Count == 0)
             {
                 di.bibliotecaAlta(listaBiblioteca);
+
+                bool abrir = false;
+                int opcion;
+                while (!abrir)
+                {
+                    opcion = mi.menu();
+                    switch (opcion)
+                    {
+                        case 0:
+                            abrir = true;
+                            break;
+                        case 1:
+                            di.bibliotecaAlta(listaBiblioteca);
+                            break;
+                        case 2:
+                            di.clienteAlta(listaClientes,listaBiblioteca);
+                            break;
+                        case 3:
+                            di.libroAlta(listaLibros, listaBiblioteca);
+                            break;
+                        case 4:
+                            di.prestamoAlta(listaPrestamos, listaBiblioteca);
+                            break;
+                            case 5:
+                                foreach(BibliotecaDto a in listaBiblioteca)
+                            {
+                                Console.WriteLine(a.Nombre.ToString());
+                            }
+                                break;
+                        default:
+                            Console.WriteLine("eleccion no reconocida");
+                            break;
+
+                    }
+                }
             }
             else
             {
@@ -45,13 +80,13 @@ namespace ejercicio1GlobalC.Controladores
                             di.bibliotecaAlta(listaBiblioteca);
                             break;
                         case 2:
-                            di.clienteAlta(listaClientes);
+                            di.clienteAlta(listaClientes, listaBiblioteca);
                             break;
                         case 3:
-                            di.libroAlta(listaLibros);
+                            di.libroAlta(listaLibros,  listaBiblioteca);
                             break;
                         case 4:
-                            di.prestamoAlta(listaPrestamos);
+                            di.prestamoAlta(listaPrestamos, listaBiblioteca);
                             break;
                         default:
                             Console.WriteLine("eleccion no reconocida");

@@ -23,18 +23,18 @@ namespace ejercicio1GlobalC.Servicios
         /// metodo que se encarga de dar alta un cliente
         /// 02/02/24 - amd
         /// </summary>
-        public void clienteAlta(List<ClienteDto> listaCliente);
+        public void clienteAlta(List<ClienteDto> listaCliente, List<BibliotecaDto> listabibliteca);
         
         /// <summary>
         /// metodo que se encarga de dar alta un libro
         /// 02/02/24 - amd
         /// </summary>
-        public void libroAlta(List<LibroDto> listaLibro);
+        public void libroAlta(List<LibroDto> listaLibro, List<BibliotecaDto> listabibliteca);
         
         /// <summary>
         /// metodo que se encarga de dar alta un prestamo
         /// 02/02/24 - amd
         /// </summary>
-        public void prestamoAlta(List<PrestamoDto> listaPrestamo);
+        public void prestamoAlta(List<PrestamoDto> listaPrestamo, List<BibliotecaDto> listabibliteca);
     }
 }
