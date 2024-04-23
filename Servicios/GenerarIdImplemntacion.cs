@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace ejercicio1GlobalC.Servicios
 {
+    /// <summary>
+    /// implemtacion que implementa a GenerarIdInterfaz
+    /// </summary>
     internal class GenerarIdImplemntacion : GenerarIdInterfaz
     {
-        /// <summary>
-        /// metodo que se encarga de crear un id
-        /// </summary>
-        /// <returns>long (id)</returns>
         public long generarIdBiblioteca(List<BibliotecaDto> listaBiblioteca)
         {
-           long id;
+            try
+            {
+                long id;
                 int tamaño = listaBiblioteca.Count;
                 if (tamaño > 0)
                 {
@@ -25,52 +26,66 @@ namespace ejercicio1GlobalC.Servicios
                 {
                     id = 1;
                 }
-                return id;     
+                return id;
+            }
+            catch (Exception ex) { throw; } 
         }
 
         public long generarIdCliente(List<ClienteDto> listaCliente)
         {
-            long id;
-            int tamaño = listaCliente.Count;
-            if (tamaño > 0)
+            try
             {
-                id = listaCliente[tamaño - 1].Id + 1;
+                long id;
+                int tamaño = listaCliente.Count;
+                if (tamaño > 0)
+                {
+                    id = listaCliente[tamaño - 1].Id + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
+                return id;
             }
-            else
-            {
-                id = 1;
-            }
-            return id;
+            catch (Exception ex) { throw; }    
         }
 
         public long generarIdLibro(List<LibroDto> listaLibro)
         {
-            long id;
-            int tamaño = listaLibro.Count;
-            if (tamaño > 0)
+            try
             {
-                id = listaLibro[tamaño - 1].Id + 1;
+                long id;
+                int tamaño = listaLibro.Count;
+                if (tamaño > 0)
+                {
+                    id = listaLibro[tamaño - 1].Id + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
+                return id;
             }
-            else
-            {
-                id = 1;
-            }
-            return id;
+            catch (Exception ex) { throw; }          
         }
 
         public long generarIdPrestamo(List<PrestamoDto> listaPrestamo)
         {
-            long id;
-            int tamaño = listaPrestamo.Count;
-            if (tamaño > 0)
+            try
             {
-                id = listaPrestamo[tamaño - 1].Id + 1;
+                long id;
+                int tamaño = listaPrestamo.Count;
+                if (tamaño > 0)
+                {
+                    id = listaPrestamo[tamaño - 1].Id + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
+                return id;
             }
-            else
-            {
-                id = 1;
-            }
-            return id;
+            catch (Exception ex) { throw; }            
         }
     }
 }

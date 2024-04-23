@@ -9,6 +9,7 @@ namespace ejercicio1GlobalC.Dtos
     internal class LibroDto
     {
         long id;
+        string nombreBiblioteca = "aaaa";
         string titulo = "aaaaaa";
         string subtitulo = "aaaaa";
         string autor = "aaaaa";
@@ -17,10 +18,12 @@ namespace ejercicio1GlobalC.Dtos
         string editorial = "aaaaaa";
         int stock = 99999;
 
-        public LibroDto() { }   
-        public LibroDto(long id, string titulo, string subtitulo, string autor, string iSBN, int numeroEdicion, string editorial, int stock)
+        public LibroDto() { }
+
+        public LibroDto(long id, string nombreBiblioteca, string titulo, string subtitulo, string autor, string iSBN, int numeroEdicion, string editorial, int stock)
         {
             this.id = id;
+            this.nombreBiblioteca = nombreBiblioteca;
             this.titulo = titulo;
             this.subtitulo = subtitulo;
             this.autor = autor;
@@ -31,6 +34,7 @@ namespace ejercicio1GlobalC.Dtos
         }
 
         public long Id { get => id; set => id = value; }
+        public string NombreBiblioteca { get => nombreBiblioteca; set => nombreBiblioteca = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public string Subtitulo { get => subtitulo; set => subtitulo = value; }
         public string Autor { get => autor; set => autor = value; }

@@ -18,14 +18,16 @@ namespace ejercicio1GlobalC.Controladores
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal.txt";
-           // StreamReader sr = new StreamReader(ruta);   
+            DateTime date = DateTime.Now;
+            string dateString = date.ToString("yyyyMMdd")+"log.txt";
+            string ruta = "C:\\Users\\profesor\\Desktop\\"+dateString;
+            // StreamReader sr = new StreamReader(ruta);   
             //if (sr.ReadToEnd() != null)
-           // {
+            // {
             //    StreamWriter sw = new StreamWriter(ruta);
-           // }
-            
-            
+            // }
+
+
             List<BibliotecaDto>listaBiblioteca = new List<BibliotecaDto>();
             List<ClienteDto> listaClientes = new List<ClienteDto>();
             List<LibroDto> listaLibros = new List<LibroDto>();  
