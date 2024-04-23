@@ -8,7 +8,9 @@ namespace ejercicio1GlobalC.Controladores
     /// 01/02/24 - amd
     /// </summary>
     class Program
+
     {
+        internal static long idB;
         /// <summary>
         /// metodo principal
         /// 01/02/24 - amd
@@ -16,7 +18,13 @@ namespace ejercicio1GlobalC.Controladores
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal";
+            //string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal.txt";
+           // StreamReader sr = new StreamReader(ruta);   
+            //if (sr.ReadToEnd() != null)
+           // {
+            //    StreamWriter sw = new StreamWriter(ruta);
+           // }
+            
             
             List<BibliotecaDto>listaBiblioteca = new List<BibliotecaDto>();
             List<ClienteDto> listaClientes = new List<ClienteDto>();
@@ -41,6 +49,7 @@ namespace ejercicio1GlobalC.Controladores
                             break;
                         case 1:
                             di.bibliotecaAlta(listaBiblioteca);
+                            
                             break;
                         case 2:
                             di.clienteAlta(listaClientes,listaBiblioteca);

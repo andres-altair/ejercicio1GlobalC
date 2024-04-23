@@ -19,6 +19,7 @@ namespace ejercicio1GlobalC.Servicios
         GenerarIdInterfaz gi = new GenerarIdImplemntacion();
         public void bibliotecaAlta(List<BibliotecaDto> listabibliteca)
         {
+            string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal\\biblioteca.txt";
             long id = gi.generarIdBiblioteca(listabibliteca);
             Console.WriteLine("escribe el nombre de la biblioteca");
             string nombre= Console.ReadLine();
@@ -26,6 +27,22 @@ namespace ejercicio1GlobalC.Servicios
             string direccion = Console.ReadLine();  
             BibliotecaDto nuevaBinlioteca = new BibliotecaDto(id,nombre,direccion);
             listabibliteca.Add(nuevaBinlioteca);
+            try
+            {
+                
+                StreamWriter sw = new StreamWriter(ruta);
+                foreach(BibliotecaDto b in listabibliteca)
+                {
+                    sw.WriteLine(b.Id.ToString()+","+b.Nombre.ToString()+","+b.Direccion.ToString()); 
+                }
+              
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
         public void clienteAlta(List<ClienteDto> listaCliente, List<BibliotecaDto> listabibliteca)
@@ -58,6 +75,18 @@ namespace ejercicio1GlobalC.Servicios
             if(nuevaBinlioteca.Nombre.Equals(biblioteca)) 
             {
                 nuevaBinlioteca.ClienteDtos.Add(cliente);
+                try
+                {
+                    string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal\\cliente.txt";
+                    StreamWriter sw = new StreamWriter(ruta);
+                    sw.WriteLine(cliente.ToString());
+                    sw.Close();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
             }
             else
             {
@@ -96,6 +125,18 @@ namespace ejercicio1GlobalC.Servicios
             if (nuevaBinlioteca.Nombre.Equals(biblioteca))
             {
                 nuevaBinlioteca.LibroDtos.Add(libroDto);
+                try
+                {
+                    string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal\\libro.txt";
+                    StreamWriter sw = new StreamWriter(ruta);
+                    sw.WriteLine(libroDto.ToString());
+                    sw.Close();
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine(ex.Message);
+                }
+             
             }
             else
             {
@@ -133,6 +174,18 @@ namespace ejercicio1GlobalC.Servicios
             if (nuevaBinlioteca.Nombre.Equals(biblioteca))
             {
                 nuevaBinlioteca.PrestamoDtos.Add(prestamo);
+                try
+                {
+                    string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal\\prestamo.txt";
+                    StreamWriter sw = new StreamWriter(ruta);
+                    sw.WriteLine(prestamo.ToString());
+                    sw.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+               
             }
             else
             {

@@ -8,6 +8,7 @@ namespace ejercicio1GlobalC.Servicios
 {
     internal class MenuImplementacion : MenuInterfaz
     {
+        idB
         public int menu()
         {
             Console.WriteLine("0. cerrar");
