@@ -27,13 +27,11 @@ namespace ejercicio1GlobalC.Servicios
                 listabibliteca.Add(nuevaBinlioteca);
                 try
                 {
-
                     StreamWriter sw = new StreamWriter(ruta);
                     foreach (BibliotecaDto b in listabibliteca)
                     {
                         sw.WriteLine(b.Id.ToString() + "," + b.Nombre.ToString() + "," + b.Direccion.ToString());
                     }
-
                     sw.Close();
                 }
                 catch (IOException ex)
@@ -73,12 +71,17 @@ namespace ejercicio1GlobalC.Servicios
 
                 listaCliente.Add(cliente);
 
-
                 try
                 {
                     string ruta = "C:\\Users\\profesor\\Desktop\\repasoGlobal\\cliente.txt";
                     StreamWriter sw = new StreamWriter(ruta);
-                    sw.WriteLine(cliente.ToString());
+                    foreach (ClienteDto b in listaCliente)
+                    {
+                        sw.WriteLine(b.Id.ToString() + "," + b.NombreBiblioteca.ToString() 
+                            + "," + b.Nombre.ToString() +","+ b.Apellidos.ToString() +","+ b.Nacimiento.ToString()
+                            +","+b.Dni.ToString()+","+b.CorreoElectronico.ToString()+","
+                            +b.InicioSuspension.ToString() +","+b.FinSuspension.ToString());
+                    }
                     sw.Close();
                 }
                 catch (IOException ex)
